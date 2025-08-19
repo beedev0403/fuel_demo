@@ -8,6 +8,7 @@ class Create_posts
 	{
 		\DBUtil::create_table('posts', array(
 			'id' => array('constraint' => 11, 'type' => 'int', 'auto_increment' => true, 'unsigned' => true),
+			'customer_id' => array('constraint' => 11, 'type' => 'int', 'unsigned' => true, 'null' => false),
 			'title' => array('constraint' => 255, 'type' => 'varchar'),
 			'body' => array('type' => 'text'),
 			'created_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),

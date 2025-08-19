@@ -20,10 +20,21 @@ class Model_Post extends Model
      */
     protected static $_properties = array(
         'id',
+        'customer_id',
         'title',
         'body',
         'created_at',
         'updated_at',
+    );
+
+    protected static $_belongs_to = array(
+        'customer' => array(
+            'key_from' => 'customer_id',
+            'model_to' => 'Model_Customer',
+            'key_to' => 'id',
+            'cascade_save' => true,
+            'cascade_delete' => false,
+        ),
     );
 
     /**

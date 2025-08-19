@@ -16,9 +16,9 @@ class Controller_Customer extends Controller_Template
     }
     public function action_index()
     {
-        $customers = $this->customer_service->get_all_customers();
+        $data['customers'] = $this->customer_service->get_all_customers();
         $this->template->title = 'Customers';
-        $this->template->content = View::forge('customer/index', $customers);
+        $this->template->content = View::forge('customer/index', $data);
     }
 
     public function action_create()

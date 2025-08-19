@@ -27,6 +27,16 @@ class Model_Customer extends Model
         ),
     );
 
+    protected static $_has_many = array(
+        'posts' => array(
+            'key_from' => 'id',
+            'model_to' => 'Model_Post',
+            'key_to' => 'customer_id',
+            'cascade_save' => true,
+            'cascade_delete' => false,
+        ),
+    );
+
     public static function validate($factory)
     {
         $val = Validation::forge($factory);

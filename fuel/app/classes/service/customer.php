@@ -19,9 +19,15 @@ class Service_Customer
      * Get all customers for display
      * @return Model_Customer[]
      */
+
+    //related posts
     public function get_all_customers(): array
     {
-        return $this->customer_repository->find_all();
+        $customers = $this->customer_repository->find_all();
+        foreach ($customers as $customer) {
+            $customer->with('posts');
+        }
+        return $customers;
     }
 
     /**
